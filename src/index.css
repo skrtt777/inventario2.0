@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(240, 240, 240, 0.95);
+  background-color: #2c2c2c;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primary-bg: #1e1e1e;
+  --secondary-bg: #333333;
+  --accent-color: #3B82F6; /* azul elegante */
+  --button-bg: #4b5563; /* cinza escuro */
+  --button-hover: #6b7280; /* cinza médio */
+}
+
+html, body, #root {
+  @apply w-full h-full m-0 p-0;
+  background-color: var(--primary-bg);
+}
+
+a {
+  @apply font-medium no-underline transition-colors;
+  color: var(--accent-color);
+}
+
+a:hover {
+  @apply underline;
+  color: #60a5fa; /* tom mais claro de azul */
+}
+
+button {
+  @apply rounded-lg border border-transparent px-4 py-2 text-base font-medium cursor-pointer transition-colors;
+  background-color: var(--button-bg);
+  color: #f9fafb;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+  border-color: var(--accent-color);
+}
+
+button:focus, button:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+input, textarea, select {
+  @apply w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2;
+  border-color: #6b7280;
+  background-color: var(--secondary-bg);
+  color: #f9fafb;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent-color);
+  ring-color: var(--accent-color);
+}
+
+/* Modo claro */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #1f2937; /* cinza escuro */
+    background-color: #f9fafb;
+
+    --primary-bg: #ffffff;
+    --secondary-bg: #f3f4f6;
+    --accent-color: #2563eb; /* azul vivo */
+    --button-bg: #d1d5db;
+    --button-hover: #9ca3af;
+  }
+
+  a:hover {
+    color: var(--accent-color);
+  }
+
+  button {
+    color: #1f2937;
+  }
+
+  input, textarea, select {
+    background-color: var(--secondary-bg);
+    color: #1f2937;
+  }
+}
